@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import { client } from 'lib/sanity'
+import Link from 'next/link'
 
 export default function Home({ posts }) {
   return (
@@ -17,29 +18,20 @@ export default function Home({ posts }) {
 
         <div className='mt-20 mx-auto text-center max-w-3xl px-10'>
           {posts.map((post, index) => (
-            <div
-              key={index}
-              className='mb-10 p-8 bg-white border border-gray-200 rounded-2xl shadow-sm flex flex-col'
-            >
-              <p className='mb-6 text-gray-400 uppercase text-sm'>
-                {new Date(post.publishedAt).toDateString().slice(4)}
-              </p>
-              <h3 className='text-3xl font-semibold text-gray-900'>
-                {post.title}
-              </h3>
-              {/* <p className='mt-6 text-gray-500'>
+            <Link key={index} as={`/posts/${post.slug}`} href='/posts/[slug]'>
+              <a className='mb-10 p-8 bg-white border border-gray-200 rounded-2xl shadow-sm flex flex-col'>
+                <p className='mb-6 text-gray-400 uppercase text-sm'>
+                  {new Date(post.publishedAt).toDateString().slice(4)}
+                </p>
+                <h3 className='text-3xl font-semibold text-gray-900'>
+                  {post.title}
+                </h3>
+                {/* <p className='mt-6 text-gray-500'>
                 Today we introduced a new big update ...
               </p> */}
-            </div>
+              </a>
+            </Link>
           ))}
-
-          {/* <div className='mb-10 p-8 bg-white border border-gray-200 rounded-2xl shadow-sm flex flex-col'>
-            <p className='mb-6 text-gray-400 uppercase text-sm'>Jan 06 2022</p>
-            <h3 className='text-3xl font-semibold text-gray-900'>Some news</h3>
-            <p className='mt-6 text-gray-500'>
-              Today we introduced a new big update ...
-            </p>
-          </div> */}
         </div>
       </div>
     </div>
