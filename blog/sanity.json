@@ -1,7 +1,8 @@
 {
   "root": true,
   "project": {
-    "name": "blog"
+    "name": "blog",
+    "basePath": "/blog"
   },
   "api": {
     "projectId": "9jfmgr2j",
@@ -15,9 +16,7 @@
   ],
   "env": {
     "development": {
-      "plugins": [
-        "@sanity/vision"
-      ]
+      "plugins": ["@sanity/vision"]
     }
   },
   "parts": [
