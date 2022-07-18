@@ -1,0 +1,34 @@
+{
+  "root": true,
+  "project": {
+    "name": "blog",
+    "basePath": "/studio"
+  },
+  "api": {
+    "projectId": "9jfmgr2j",
+    "dataset": "production"
+  },
+  "plugins": [
+    "@sanity/base",
+    "@sanity/default-layout",
+    "@sanity/default-login",
+    "@sanity/desk-tool",
+    "dashboard-widget-vercel",
+    "@sanity/dashboard"
+  ],
+  "env": {
+    "development": {
+      "plugins": ["@sanity/vision"]
+    }
+  },
+  "parts": [
+    {
+      "name": "part:@sanity/base/schema",
+      "path": "./schemas/schema"
+    },
+    {
+      "implements": "part:@sanity/dashboard/config",
+      "path": "dashboardConfig.js"
+    }
+  ]
+}

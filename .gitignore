@@ -31,6 +31,6 @@ yarn-error.log*
 # vercel
 .vercel
 
-/blog/node_modules
+/studio/node_modules
 
 .env
